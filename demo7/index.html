@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="webapp">
+  <head>
+    <meta charset="utf-8">
+	<title>Demo7</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+	<style>
+		body {font-size:20px;}
+		.ng-scope {
+			margin: 10px;
+			padding:10px;
+			border:1px solid #000;
+		}
+	</style>
+  </head>
+  <body>
+  		
+  		<div ng-controller="HttpCtrl">
+  			<ul>
+  				<li ng-repeat="book in bookList">书名：{{book.name}}，售价：{{book.price}}</li>
+  			</ul>
+  		</div>
+    	
+  	<script src="../bower_components/angular/angular.min.js"></script>
+  	<script src="scripts/demo.js"></script>
+  	
+  </body>
+</html>

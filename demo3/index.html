@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="webapp">
+  <head>
+    <meta charset="utf-8">
+	<title>Demo3</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+	<style>
+		body {font-size:20px;}
+		.ng-scope {
+			margin: 10px;
+			padding:10px;
+			border:1px solid #000;
+		}
+		span {margin:0 0 0 40px;color:red;}
+		li {float:left;margin:0 100px 0 0 ;}
+		ul {background:lightblue;}
+	</style>
+  </head>
+  <body>
+  		
+  		<div ng-controller="FilterTestCtrl">
+  			a:{{a}}<br />
+  			b:{{b}}
+  			<h1>表达式</h1>
+  			<ul class="clearfix">
+  				<li>
+  					<h3>数学运算</h3>
+  					<div>
+  						a + b <span> {{a + b}}</span><br />
+  						a - b <span> {{a - b}}</span><br />
+  						a * b <span> {{a * b}}</span><br />
+  						a / b <span> {{a / b}}</span><br />
+  						a % b <span> {{a % b}}</span>
+  					</div>
+  				</li>
+  				<li>
+  					<h3>比较运算</h3>
+  					<div>
+  					a == b <span> {{a == b}} </span><br />
+  					a != b <span> {{a != b}} </span><br />
+  					a >  b  <span> {{a > b}} </span><br />
+  					a <  b	<span> {{a < b}} </span><br />
+  					a >= b	<span> {{a >= b}} </span><br />
+  					a <= b	<span> {{a <= b}} </span><br />
+  					</div>
+  				</li>
+  				<li>
+  					<h3>布尔运算</h3>
+  					<div>
+  					a && b <span>{{a && b}}</span><br />
+  					a || b <span>{{a || b}}</span><br />
+  					!a     <span>{{!a}}</span>
+  					</div>
+  				</li>
+  				<li>
+  					<h3>访问$scope上的函数</h3>
+  					<div>
+  						fibonacci(10) <span>{{fibonacci(10)}}</span><br />
+  						fibonacci(10) <span>{{fibonacci(100)}}</span><br />
+  						fibonacci(fibonacci(4))<span>{{fibonacci(fibonacci(4))}}</span>
+  					</div>
+  				</li>
+  				<li>
+  					<h3>访问数组或对象</h3>
+  					<div>
+  						productList[1] <span>{{productList[1]}}</span><br />
+  						jdbcConf.url   <span>{{jdbcConf.url}}</span><br />
+  						jdbcConf['url']<span>{{jdbcConf['url']}}</span>
+  					</div>
+  				</li>
+  			</ul>
+  			
+  			<div>
+  				<h1>Filter</h1>
+  				<ul class="clearfix">
+  					<li>
+	  					<h3>内置filter</h3>
+	  					<div>
+	  						100|currency<span>{{100|currency:"RMB "}}</span><br />
+	  						1404292235912|date:"yyyy-MM-dd HH:mm:ss"<span>{{1404292235912|date:"yyyy-MM-dd HH:mm:ss"}}</span><br />
+	  						["aaa","bbb","ccc"]|filter:'c'<span>{{["aaa","bbb","ccc"]|filter:'c'}}</span><br />
+	  						[{name:"aaa",age:30},{name:"ccc",age:40}]|filter:'c' <span>{{[{name:"aaa",age:30},{name:"ccc",age:40}]|filter:'c'}}</span><br />
+	  						"abcdefg"|limitTo:3<span>{{"abcdefg"|limitTo:3}}</span><br />
+	  						["aa","bb","cc","dd"]|limitTo:2<span>{{["aa","bb","cc","dd"]|limitTo:2}}</span><br />
+	  						{a:1,b:2}|json<span>{{{a:1,b:2}|json}}</span><br />
+	  						"ABCDEFG"|lowercase<span>{{"ABCDEFG"|lowercase}}</span><br />
+	  						"abcdefg"|uppercase<span>{{"abcdefg"|uppercase}}</span><br />
+	  						16.7563|number:2 <span>{{16.7563|number:2}}</span><br />
+	  						167563|number <span>{{167563|number}}</span><br />
+	  						[{"age": 20},{"age": 12}] | orderBy:'age'<span>{{ [{"age": 20},{"age": 12}] | orderBy:'age'}}</span><br />
+	  						[{"age": 20},{"age": 12}] | orderBy:'age':true <span>{{ [{"age": 20},{"age": 12}] | orderBy:'age':true }}</span><br />  
+	  					</div>
+  					</li>
+  					<li>
+  						<h3>自定义filter</h3>
+  						<div>
+  							["a","b","c"]|concat:"," <span>{{["a","b","c"]|concat:","}}</span><br />
+  							"abcdefg"|strlen<span>{{"abcdefg"|strlen}}</span><br />
+  							["a","b","c"]|concat:","|strlen<span>{{["a","b","c"]|concat:","|strlen}}</span><br />
+  						</div>
+  					</li>
+  				</ul>
+  			</div>
+  		</div>
+    	
+  	<script src="../bower_components/angular/angular.min.js"></script>
+  	<script src="scripts/demo.js"></script>
+  </body>
+</html>

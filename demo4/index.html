@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="webapp">
+  <head>
+    <meta charset="utf-8">
+	<title>Demo4</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+	<style>
+		body {font-size:20px;}
+		.ng-scope {
+			margin: 10px;
+			padding:10px;
+			border:1px solid #000;
+		}
+		.col-md-12 {margin:20px 0 0 0;}
+		.col-md-3 {margin:20px 0;}
+	</style>
+  </head>
+  <body>
+  		<div ng-controller="EventTestCtrl" class="clearfix">
+  			<ul>
+	  			<li ng-repeat="item in eventList">{{item.name}}</li>
+	  		</ul>
+  			<button class="btn btn-primary btn-sm" ng-click="fireEvent('click')">click</button>
+  			<button class="btn btn-primary btn-sm" ng-dblclick="fireEvent('dblclick')">dblclick</button>
+  			<button class="btn btn-primary btn-sm" ng-mousedown="fireEvent('mousedown')">mousedown</button>
+  			<button class="btn btn-primary btn-sm" ng-mouseup="fireEvent('mouseup')">mouseup</button>
+			
+			<button class="btn btn-primary btn-sm" ng-mouseenter="fireEvent('mouseenter')">mouseenter</button>
+			<button class="btn btn-primary btn-sm" ng-mouseleave="fireEvent('mouseleave')">mouseleave</button>
+			<button class="btn btn-primary btn-sm" ng-mousemove="fireEvent('mousemove')">mousemove</button>
+			<button class="btn btn-primary btn-sm" ng-mouseover="fireEvent('mouseover')">mouseover</button>
+			<div>
+				<div class="col-md-3">
+					<input class="form-control" ng-focus="fireEvent('focus')" value="focus"/>
+				</div>	
+				<div class="col-md-3">
+					<input class="form-control" ng-blur="fireEvent('blur')"  value="blur"/>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-copy="fireEvent('copy')"  value="copy"/>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-cut="fireEvent('cut')"  value="cut"/>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-paste="fireEvent('paste')"  value="paste"/>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-keydown="fireEvent('keydown')"  value="keydown"/>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-keypress="fireEvent('keypress')"  value="keypress"/>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-keyup="fireEvent('keyup')"  value="keyup"/>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control" ng-change="fireEvent('change')" ng-model="select" ng-init="select='change'">
+						<option value="change">change</option>
+						<option value="change-option-2">change-option-2</option>
+						<option value="change-option-3">change-option-3</option>
+						<option value="change-option-4">change-option-4</option>
+						<option value="change-option-5">change-option-5</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<form ng-submit="fireEvent('submit')">
+						<div class="input-group">
+					      	<input type="text" class="form-control" />
+					      	<span class="input-group-btn">
+					      		<button class="btn btn-primary" type="submit">submit</button>
+					      	</span>
+					    </div>
+				    </form>
+				</div>
+			</div>
+		</div>
+  	<script src="../bower_components/angular/angular.min.js"></script>
+  	<script src="scripts/demo.js"></script>
+  </body>
+</html>

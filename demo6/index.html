@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="webapp">
+  <head>
+    <meta charset="utf-8">
+	<title>Demo6</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/tablesort.css"/>
+	<style>
+		.ng-scope {
+			margin: 10px;
+			padding:10px;
+			border:1px solid #000;
+		}
+		.datawrap {
+			margin:40px;
+		}
+		[tablesort],[tablesort1],[tablesort2] {
+			width:100px;
+			height:100px;
+			border:1px solid #000;
+		}
+	</style>
+  </head>
+  <body>
+	<div ng-controller="DirectiveTestCtrl">
+		 <div tablesort tablesort1>
+		 	Dom With tablesort && tablesort1
+		 </div>
+		 <div tablesort2 readvar="readvar" readwritevar="readwritevar" exp="exp(a,b)">
+		 	Dom With tablesort2
+		 </div>
+		 <button class="btn btn-primary" ng-click="logNewScope()">NewScope</button>
+		 <button class="btn btn-primary" ng-click="logComplexScope()">ComplexScope</button>
+	</div>
+			
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  	<script src="../bower_components/angular/angular.min.js"></script>
+  	<script src="scripts/demo.js"></script>
+  	<script src="scripts/tablesort.js"></script>
+  	<script src="scripts/tablesort1.js"></script>
+  	<script src="scripts/tablesort2.js"></script>
+  	
+  	
+  </body>
+</html>

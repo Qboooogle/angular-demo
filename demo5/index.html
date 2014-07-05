@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="webapp">
+  <head>
+    <meta charset="utf-8">
+	<title>Demo5</title>
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/tablesort.css"/>
+	<style>
+		.ng-scope {
+			margin: 10px;
+			padding:10px;
+			border:1px solid #000;
+		}
+		.datawrap {
+			margin:40px;
+		}
+	</style>
+  </head>
+  <body>
+  		<div ng-controller="DirectiveTestCtrl">
+  			
+  			<div class="datawrap">
+  				<h3>员工列表</h3>
+  				<table class="table table-bordered table-condensed" tablesort="name asc" orderby="orderby(order,peopleList)">
+  					<thead>
+						<tr>
+							<th style="width:33%">序号</th>
+							<th sort="name" class="sort"  style="width:33%"><div class="h">姓名</div></th>
+							<th sort="age" class="sort" style="width:34%"><div class="h">年龄</div></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="people in peopleList">
+							<td style="width:33%;">{{$index+1}}</td>
+							<td style="width:33%;">{{people.name}}</td>
+							<td style="width:34%;">{{people.age}}</td>
+						</tr>
+					</tbody>
+  				</table>
+  			</div>
+  			
+  			<div class="datawrap">
+  				<h3>流行的JavaScript框架</h3>
+  				<table class="table table-bordered table-condensed" tablesort="prjName asc" orderby="orderby(order,popJsFrameworks)">
+  					<thead>
+						<tr>
+							<th style="width:33%">序号</th>
+							<th sort="prjName" class="sort"  style="width:33%"><div class="h">名称</div></th>
+							<th sort="stars" class="sort" style="width:34%"><div class="h">受欢迎程度</div></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="framework in popJsFrameworks">
+							<td style="width:33%;">{{$index+1}}</td>
+							<td style="width:33%;">{{framework.prjName}}</td>
+							<td style="width:34%;">{{framework.stars}}</td>
+						</tr>
+					</tbody>
+  				</table>
+  			</div>
+  			
+		</div>
+		
+		
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  	<script src="../bower_components/angular/angular.min.js"></script>
+  	<script src="scripts/demo.js"></script>
+  	<script src="scripts/tablesort.js"></script>
+  </body>
+</html>
